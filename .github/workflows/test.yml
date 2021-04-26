@@ -24,10 +24,10 @@ jobs:
     steps:
       - name: Check out the repo
         uses: actions/checkout@v2
-      - name: Push to Docker Hub
-        uses: docker/build-push-action@v1
+      - name: Buils and Push to Docker Hub
+        uses: mr-smithers-excellent/docker-build-push@v5
         with:
+          image: manpreets115/docker-nodejs
+          registry: docker.io
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-          image: manpreets115/docker-nodejs
-          tag_with_ref: true
